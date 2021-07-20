@@ -10,8 +10,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class MealPlan {
 
     @Test
-    public void verifyUserCanLoginWithValidParameters() {
-
+    public void verifyImageIngridientsDescriptionIsNotEmpty() {
 
         Configuration.browser = Browsers.CHROME;
         Selenide.open("https://app.dev.betterme.world/login");
@@ -30,6 +29,7 @@ public class MealPlan {
         ElementsCollection ingredient = $$("div.meal_columnRight__1tEC7 > div.meal_ingredients__1Uq1K > ul");
 
         image.exists();
+
         assertThat(description).isNotNull(); //не факт що норм перевірка
         assertThat(ingredient).isNotNull();
 
