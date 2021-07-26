@@ -14,11 +14,13 @@ public class Calendar {
 
         Configuration.browser = Browsers.CHROME;
         Selenide.open("https://app.dev.betterme.world/login");
+
         SelenideElement emailInput = $("input[data-input='email-login-email']");
         SelenideElement passwordInput = $("input[data-input='email-login-password']");
         SelenideElement loginButton = $("div[class*='login_button'] button");
-        SelenideElement rightButton = $("button[class='calendar_nextWeekBtn__3-8IM']");
-        SelenideElement currentDay = $("button[class='calendar_dayCurrentAndSelected__1FilX']");
+        SelenideElement rightButton = $("button[class*='calendar_nextWeekBtn']");
+        SelenideElement currentDay = $("button[class^='calendar_dayCurrentAndSelected']");
+        boolean isCurrentDayVisible = currentDay.isDisplayed();
 
         emailInput.setValue("gifatog434@godpeed.com");
         passwordInput.setValue("111111");
