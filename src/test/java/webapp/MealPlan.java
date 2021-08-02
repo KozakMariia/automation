@@ -21,18 +21,20 @@ public class MealPlan {
         SelenideElement dinnerFragment = mealFragments.get(2);
         SelenideElement image = $("div[class*='meal_imageTablet__4zk0z']");
 
-        emailInput.setValue("gifatog434@godpeed.com");
+        emailInput.setValue("kakiyiv233@spinwinds.com");
         passwordInput.setValue("111111");
         loginButton.click();
         dinnerFragment.click(); //переписати селектор щоб був на будь-який день
 
-        ElementsCollection description = $$("div[class*=meal_howToMake] li").filter(Condition.visible);
-        ElementsCollection ingredient = $$("div[class*=meal_ingredients] li").filter(Condition.visible);
+        ElementsCollection description = $$("div[class*='meal_howToMake'] li")
+                .should(CollectionCondition.sizeNotEqual(0))
+                .filter(Condition.visible);
 
+        ElementsCollection ingredient = $$("div[class*='meal_ingredients'] li")
+                .should(CollectionCondition.sizeNotEqual(0))
+                .filter(Condition.visible);
 
-
-        assertThat(description).isNotEmpty(); // перевірити, що в кожного елементу із how to make є не пустий текст
+        assertThat(description).isNotEmpty();
         assertThat(ingredient).isNotEmpty();
-
     }
 }
